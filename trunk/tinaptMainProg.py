@@ -66,7 +66,8 @@ class tinaptMainClass(tinaptMain):
         if not self.pbSaveMain.isEnabled():
             self.pbSaveMain.setEnabled(1)
 
-    # Sources tab 
+
+    ## Sources tab ## 
     def doUpdateSources(self):
         # Prepare widgets #
         self.mainTextWindow.setEnabled(1)
@@ -81,7 +82,6 @@ class tinaptMainClass(tinaptMain):
         self.updateProcess.setArguments((QStringList.split(" ", "apt-get update")))
         self.updateProcess.start()
         
-        
     def readUpdateOutput(self):
         self.mainTextWindow.append(QString(self.updateProcess.readStdout()))
         
@@ -92,14 +92,12 @@ class tinaptMainClass(tinaptMain):
         self.sourcesMessage.setEnabled(0)
         self.pbSaveMain.setEnabled(0)
         self.mainTextWindow.setReadOnly(1)        
-
         
     def doEditSources(self):
         # Prepare widgets and variables #
         self.mainTextWindow.setEnabled(1)
         self.mainTextWindow.setReadOnly(0)
         self.pbSaveMain.setEnabled(1)
-        
         
         full = " " 
         os.chdir("/etc/apt/")
@@ -113,8 +111,9 @@ class tinaptMainClass(tinaptMain):
         backup.close()
         self.mainTextWindow.setText(full)
         self.mainTextWindow.scrollToBottom()
+
         
-        # Upgrade tab
+    ## Upgrade tab ##
     def doUpgrade(self):
     # Prepare widgets #
         self.mainTextWindow.setEnabled(1)
@@ -132,15 +131,13 @@ class tinaptMainClass(tinaptMain):
         self.connect(self.upgradeProcess, SIGNAL("readyReadStderr()"), self.readUpgradeErrors)
         self.upgradeProcess.setArguments((QStringList.split(" ", "apt-get upgrade")))
         self.upgradeProcess.start()
-
-
-
         
     def readOutput(self):
       self.mainTextWindow.append(QString(self.upgradeProcess.readStdout()))
     
     def upgradeProcessExit(self):
         self.mainTextWindow.append("Done!")
+        
         # Return widgets to defaults (foolproofing) #
         self.upgradeMessage.setText(" ")
         self.upgradeMessage.setEnabled(0)
