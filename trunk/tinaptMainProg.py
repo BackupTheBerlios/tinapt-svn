@@ -99,10 +99,13 @@ class tinaptMainClass(tinaptMain):
         self.mainTextWindow.setEnabled(1)
         self.mainTextWindow.setReadOnly(0)
         self.pbSaveMain.setEnabled(1)
+        
+        
         full = " " 
         os.chdir("/etc/apt/")
         tekst = open("sources.list" , "r")
         backup = open("sources.list.bak" , "w")
+        
         for pos in tekst:
             full= full + pos
             backup.write(pos)
