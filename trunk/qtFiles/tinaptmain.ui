@@ -1,0 +1,1177 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>tinaptMain</class>
+<widget class="QMainWindow">
+    <property name="name">
+        <cstring>tinaptMain</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>600</width>
+            <height>551</height>
+        </rect>
+    </property>
+    <property name="paletteBackgroundColor">
+        <color>
+            <red>220</red>
+            <green>203</green>
+            <blue>198</blue>
+        </color>
+    </property>
+    <property name="caption">
+        <string>Tinapt 0.1a</string>
+    </property>
+    <property name="icon">
+        <pixmap>image0</pixmap>
+    </property>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>pbSaveMain</cstring>
+        </property>
+        <property name="enabled">
+            <bool>true</bool>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>450</y>
+                <width>78</width>
+                <height>22</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>&amp;Save</string>
+        </property>
+        <property name="accel">
+            <string>Alt+S</string>
+        </property>
+    </widget>
+    <spacer>
+        <property name="name">
+            <cstring>spacer7</cstring>
+        </property>
+        <property name="orientation">
+            <enum>Horizontal</enum>
+        </property>
+        <property name="sizeType">
+            <enum>Expanding</enum>
+        </property>
+        <property name="sizeHint">
+            <size>
+                <width>20</width>
+                <height>20</height>
+            </size>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>90</x>
+                <y>450</y>
+                <width>20</width>
+                <height>20</height>
+            </rect>
+        </property>
+    </spacer>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>pbClearMain</cstring>
+        </property>
+        <property name="enabled">
+            <bool>true</bool>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>110</x>
+                <y>450</y>
+                <width>84</width>
+                <height>22</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>C&amp;lear</string>
+        </property>
+        <property name="accel">
+            <string>Alt+L</string>
+        </property>
+    </widget>
+    <spacer>
+        <property name="name">
+            <cstring>spacer1</cstring>
+        </property>
+        <property name="orientation">
+            <enum>Horizontal</enum>
+        </property>
+        <property name="sizeType">
+            <enum>Expanding</enum>
+        </property>
+        <property name="sizeHint">
+            <size>
+                <width>200</width>
+                <height>20</height>
+            </size>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>200</x>
+                <y>450</y>
+                <width>200</width>
+                <height>20</height>
+            </rect>
+        </property>
+    </spacer>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>pbCancelMain</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>400</x>
+                <y>450</y>
+                <width>78</width>
+                <height>22</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>&amp;Cancel</string>
+        </property>
+        <property name="accel">
+            <string>Alt+C</string>
+        </property>
+    </widget>
+    <spacer>
+        <property name="name">
+            <cstring>spacer2</cstring>
+        </property>
+        <property name="orientation">
+            <enum>Horizontal</enum>
+        </property>
+        <property name="sizeType">
+            <enum>Expanding</enum>
+        </property>
+        <property name="sizeHint">
+            <size>
+                <width>20</width>
+                <height>20</height>
+            </size>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>480</x>
+                <y>450</y>
+                <width>20</width>
+                <height>20</height>
+            </rect>
+        </property>
+    </spacer>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>pbQuitMain</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>500</x>
+                <y>450</y>
+                <width>78</width>
+                <height>22</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>&amp;Quit</string>
+        </property>
+        <property name="accel">
+            <string>Alt+Q</string>
+        </property>
+    </widget>
+    <widget class="QTextEdit">
+        <property name="name">
+            <cstring>mainTextWindow</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>170</y>
+                <width>570</width>
+                <height>260</height>
+            </rect>
+        </property>
+        <property name="resizePolicy">
+            <enum>AutoOneFit</enum>
+        </property>
+        <property name="textFormat">
+            <enum>AutoText</enum>
+        </property>
+        <property name="linkUnderline">
+            <bool>false</bool>
+        </property>
+    </widget>
+    <widget class="QTabWidget">
+        <property name="name">
+            <cstring>mainTabWidget</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>30</y>
+                <width>570</width>
+                <height>120</height>
+            </rect>
+        </property>
+        <widget class="QWidget">
+            <property name="name">
+                <cstring>sources</cstring>
+            </property>
+            <attribute name="title">
+                <string>Sources</string>
+            </attribute>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>pbUpdatePackages</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>170</x>
+                        <y>10</y>
+                        <width>78</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>&amp;Update</string>
+                </property>
+                <property name="accel">
+                    <string>Alt+U</string>
+                </property>
+                <property name="default">
+                    <bool>true</bool>
+                </property>
+                <property name="toolTip" stdset="0">
+                    <string>Update packagelist</string>
+                </property>
+            </widget>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>pbEditSources</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>300</x>
+                        <y>10</y>
+                        <width>78</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>&amp;Edit</string>
+                </property>
+                <property name="accel">
+                    <string>Alt+E</string>
+                </property>
+                <property name="toolTip" stdset="0">
+                    <string>Edit sources.list</string>
+                </property>
+            </widget>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer9</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>50</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>248</x>
+                        <y>13</y>
+                        <width>50</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer10</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>40</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>50</y>
+                        <width>40</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer11</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>40</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>520</x>
+                        <y>50</y>
+                        <width>40</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer12</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>170</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>10</y>
+                        <width>170</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer13</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>180</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>380</x>
+                        <y>10</y>
+                        <width>180</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <widget class="QLineEdit">
+                <property name="name">
+                    <cstring>sourcesMessage</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>40</x>
+                        <y>50</y>
+                        <width>480</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </widget>
+        </widget>
+        <widget class="QWidget">
+            <property name="name">
+                <cstring>upgrade</cstring>
+            </property>
+            <attribute name="title">
+                <string>Upgrade</string>
+            </attribute>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer14</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>40</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>50</y>
+                        <width>40</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer16</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>40</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>520</x>
+                        <y>50</y>
+                        <width>40</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>pbDistUpgrade</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>240</x>
+                        <y>10</y>
+                        <width>78</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>&amp;DistUpgrade</string>
+                </property>
+                <property name="accel">
+                    <string>Alt+D</string>
+                </property>
+            </widget>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer19</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>40</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>320</x>
+                        <y>10</y>
+                        <width>40</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>pbUpgrade</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>120</x>
+                        <y>10</y>
+                        <width>78</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>&amp;Upgrade</string>
+                </property>
+                <property name="accel">
+                    <string>Alt+U</string>
+                </property>
+                <property name="default">
+                    <bool>true</bool>
+                </property>
+            </widget>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>pbSecUpgrade</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>360</x>
+                        <y>10</y>
+                        <width>80</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>Sec&amp;urity</string>
+                </property>
+                <property name="accel">
+                    <string>Alt+U</string>
+                </property>
+                <property name="toolTip" stdset="0">
+                    <string>Click fro security upgrades</string>
+                </property>
+            </widget>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer18</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>40</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>200</x>
+                        <y>10</y>
+                        <width>40</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer21</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>120</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>10</y>
+                        <width>120</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer22</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>120</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>440</x>
+                        <y>10</y>
+                        <width>120</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <widget class="QLineEdit">
+                <property name="name">
+                    <cstring>upgradeMessage</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>40</x>
+                        <y>50</y>
+                        <width>480</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </widget>
+        </widget>
+        <widget class="QWidget">
+            <property name="name">
+                <cstring>packages</cstring>
+            </property>
+            <attribute name="title">
+                <string>Packages</string>
+            </attribute>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>pushButton13</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>410</x>
+                        <y>10</y>
+                        <width>80</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>Remove</string>
+                </property>
+            </widget>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>pushButton12</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>300</x>
+                        <y>10</y>
+                        <width>80</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>Install</string>
+                </property>
+            </widget>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>pushButton8</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>80</x>
+                        <y>10</y>
+                        <width>78</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>Search</string>
+                </property>
+            </widget>
+            <widget class="QPushButton">
+                <property name="name">
+                    <cstring>pushButton9</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>190</x>
+                        <y>10</y>
+                        <width>78</width>
+                        <height>22</height>
+                    </rect>
+                </property>
+                <property name="text">
+                    <string>Show</string>
+                </property>
+            </widget>
+            <widget class="QLineEdit">
+                <property name="name">
+                    <cstring>lineEdit3</cstring>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>40</x>
+                        <y>50</y>
+                        <width>480</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </widget>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer15</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>40</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>50</y>
+                        <width>40</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer16_2</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>40</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>520</x>
+                        <y>50</y>
+                        <width>40</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer17</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>80</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>10</y>
+                        <width>80</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer18_2</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>70</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>490</x>
+                        <y>10</y>
+                        <width>70</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer19_2</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>30</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>160</x>
+                        <y>10</y>
+                        <width>30</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer20</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>30</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>270</x>
+                        <y>10</y>
+                        <width>30</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer21_2</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>30</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>380</x>
+                        <y>10</y>
+                        <width>30</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
+        </widget>
+    </widget>
+</widget>
+<menubar>
+    <property name="name">
+        <cstring>MenuBar</cstring>
+    </property>
+    <item text="&amp;File" name="fileMenu">
+        <action name="fileSaveAction"/>
+        <separator/>
+        <separator/>
+        <action name="fileExitAction"/>
+    </item>
+    <item text="&amp;Edit" name="editMenu">
+        <action name="editUndoAction"/>
+        <action name="editRedoAction"/>
+        <separator/>
+        <action name="editCutAction"/>
+        <action name="editCopyAction"/>
+        <action name="editPasteAction"/>
+        <separator/>
+    </item>
+    <separator/>
+    <item text="&amp;Help" name="helpMenu">
+        <separator/>
+        <action name="helpAboutAction"/>
+        <item text="&amp;About" name="popupMenu_13" accel="">
+            <action name="helpAboutnew_itemAction"/>
+        </item>
+    </item>
+</menubar>
+<toolbars>
+</toolbars>
+<actions>
+    <action>
+        <property name="name">
+            <cstring>fileSaveAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image1</iconset>
+        </property>
+        <property name="text">
+            <string>Save</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Save</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+S</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>fileExitAction</cstring>
+        </property>
+        <property name="text">
+            <string>Exit</string>
+        </property>
+        <property name="menuText">
+            <string>E&amp;xit</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>editUndoAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image2</iconset>
+        </property>
+        <property name="text">
+            <string>Undo</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Undo</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+Z</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>editRedoAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image3</iconset>
+        </property>
+        <property name="text">
+            <string>Redo</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Redo</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+Y</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>editCutAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image4</iconset>
+        </property>
+        <property name="text">
+            <string>Cut</string>
+        </property>
+        <property name="menuText">
+            <string>Cu&amp;t</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+X</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>editCopyAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image5</iconset>
+        </property>
+        <property name="text">
+            <string>Copy</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Copy</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+C</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>editPasteAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image6</iconset>
+        </property>
+        <property name="text">
+            <string>Paste</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Paste</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+V</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>helpAboutAction</cstring>
+        </property>
+        <property name="text">
+            <string>About</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;About</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>helpAboutnew_itemAction</cstring>
+        </property>
+        <property name="text">
+            <string>new item</string>
+        </property>
+        <property name="menuText">
+            <string>new item</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>Action</cstring>
+        </property>
+        <property name="text">
+            <string>Unnamed</string>
+        </property>
+    </action>
+</actions>
+<images>
+    <image name="image0">
+        <data format="PNG" length="2039">89504e470d0a1a0a0000000d49484452000000220000002208060000003a470bc2000007be494441545885ed974d8c5e5519c77fe7defb7ecc3b337486760a2d15506cb129441a928a31981854240471a18271ebc2108d311a890bdcb87261a20b172c4dba622342800a54435c141aa848ad3230a59d4e3b9d9977e6fdbceffd385f8f8b7beff49d2960212c3dc9c9bdef7dcfc7ef3ce7ff3ce739f0fff2091659382eb2f08c7c1263a98f0570f6b8a01c848077a03cb6be93dade7ba2aac9d8f39a403f124877e19f32a312501ed0a08680832803970139a67113f53d0f35015f4254cf0f05ba261079f53961efada00c8c7a50170872c83368a580013150cbc064108d8ac1f7feaa5590e2c680deb7441ff4c796327f02564fc39ecfc275bb0a20490b980a42190843f4fc59f4f13f11b9cb00cda201b6acbeac1f132488a1db836c0d020507ef8666136a800a61c2e32ebf8d79e13998ff37ed3674a601980434905358df96235e05732d208ac842cd021938c1bffe67646e1fe1a183d833a7b02f3e8bde5842806e0eab19a43900d7012910704506c2fb68e67f81282040a7301161b5467945d68890954bc8fc4926174fe2d68b593b190c2db826743a9b2061394e25dced22be768b683f24302df2b070598b276b844cd503827ece200155873ea033c822703b36412a083b56ddf649aec922364f30cd90487b5c2364640570642a2028777d008c0cf42ce804b2065068c4510836a7d08ba6d8aa8f6e11518e5414b6263893a38d278a0294d6380559002b49d178c54028304a81c26b349051483b64ab5e364b700d1651b104f48390cc6a46daa06b962cb4a4ae4f3b85a5043a23581980f6703e6d7161e276ee3c72f070a3599f2e212a9071984da00fb348d5502ddff71472ee28ad8bcf12d402f2d08383868ee98d6023061f42cf43c787ac7fee7e1e7efc7bdc1b663feac6c3f8b1afffe2a7c930cdbcf783f78360fb0f809d7337a8288ad4ecf5733b9efce35fde9d9c9cda89807382f7e0177ecbdce8797af516b585452ebdf41e6b167c0bd2db1fe0338f3ccaae037308a0311867e9747abd5f3ef2eb1f2e9c397f8a424e098566aa207735c8aedd7b279e7ef18df39393d33b950a42ef856ce4f11e74eac972305a981dfe8ee0ecef5939de657df616a2bb1fe5d0834768dd781d461c2397e1c461c491f91c87a3b3d6597ee2dbbff9d6e573ab0b14ba312588df02f2cadb1b83b9a946d339155a4b20169c15722be8a1c71ab0d6175ea1c1f4dbccad3dc6be077f4063efa7c824c1e0c9bc452467e82d460cda5b12d158c98925c17bb13fb9edf15d1442b680dba291858e4cc789e5e69d35c2b058799e09c6c92684d10a054cd4e1587bc8f7bf7b1f97828b4ce59e1d8ddd68efc87c8617b709a195412945bc719973e74eb8381b3aa0c15894dd02928e8485a16671cd3253f7dc3ad34424408c27082070012e71fcfde2326f6d7816f329bee963708ed80e58eacd333bbd9f7abd851310a5f041c06ae7029de53789fb2bc4c381747ada01131f04a26c0e3887b119abb162693566aa1670dbcc2cbdd8f3f2f98b9c5a6ea2549361ea88fc0a5a1cd628ac35208ef3abaf538fa699d97d80c4f638ffee0b2cf72ea0024862e7ccaa784994a708764564043f0e1268eb697887b516152a94310c9cf0eae2655e5b6ad2b62d54e418a6964806d8d4637c86772dac35048036015e0f78e7ed6374c233d8d8120269d7e1879058efd381b3a5454ca5932d16f1a301ae1ee1720380330ebc26ce03625527b196c04198f59148a37c4ed2176aa125d5c5f1a1adc5e80009032417d2bea04221e92b422dca64e213650dd02a3d2702d4169034374866a01680f1589d15a67285e700982447748a644350963ccf8911eaa1c278b05971c0e60e7c5ec08d46429e38ecd009b9f3a4e24bb13628b39a2d5be38c20685ceab0ce23dea05488368a64e4b1e291741d85e0e22e414d492616749dbeb5ca398bd5425453689593c41e6385e15a71320e368c0b23c813e3d816eab778cd7b675e7f79dfdc0d77d69b9373e25d20565041c830f624698632eb82ed13b85c944ba5eedbb2b192a840458ac888330eef950a1ca459aa46b121e93af410448bd8dcabac1f7a9259076b5b625838f61e9d7eede967fafdf5eeee3dfb8f341b53932eb788783a89c8729a8ab26da7acb52e1fda20ebdbc9f6dffef5fc932f3df5a57bbf78380f63f1884aadc11a2f3a8f19b6bb5e7704e7204d9cef2d06bdf5b3fecdf9534b479df3ab14a13e01f271aa46a9e4e930accd7de5fe1f3f71e0d0571f1294ea18dc6b03edd560357789b8dec273afa4974ebe6b92f63ae27280a81e4ddf76cfcd878f7ce78eaf79eb512e0b066b0bd1a8eb0223a87ca3b6bef2cee88dc533abc7802e7019d8003a407f3b4893c2bf6780998989e9fdf73ef0f39f45339ffff4e9c148efe3627afaaf7f381a772e9ca3f0fff1fc3300c22054ad1b0f5d7ff0d0376e7a98b8571bb5d568f93ff15b4bf3dd13cef8eac0eb036bc07a09b505a43606320dec28ebd4aebd777d61e6963bee583871f4a91260fc7a50a57daadcea08683427a3b95bef9afdf2b97f744fe5896d73255dac403aa545fac0601c2402eae5f64c9530d314fe5e2fdb54109aab2f4d015712a0a8b470f5adf28e0a64585a6200c4403cee3555b8adf2cb70ac73256ab3ad56d97805a2aa2d2a616ae522aafe4211c462aee424866d674d6566533676e5ca1be504be84aa6e6e9eab6f6e1548544e5e2feb78ff6af2caaa96edf9c8b6d554ef55e0d93ca0c6261fb7c8f81811573453f585add70937f6ddff173a0ec72b81853c240000000049454e44ae426082</data>
+    </image>
+    <image name="image1">
+        <data format="PNG" length="217">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b000000a049444154388dd5954d0a802010859fd14668e18de662d222bc98376a21b4ac451992c66469e0b7f187f1f11c47052a218e762daddbfb9e99f6568f80b5364b8588ce35440400e80a398ce8f99034d2292cc37c8ebd530feb583a05e954341f8a027b2a7d3a1f09bf854dc5d5d953aa396e4f38cab199e2d2e108abe156f82e30977fcb4d8ff942d75dbebed2e143953a93f6caad3d6111f44b7d4f820ff9c0069bb51ecded318c5c0000000049454e44ae426082</data>
+    </image>
+    <image name="image2">
+        <data format="PNG" length="172">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b0000007349444154388ded92c10e80200840b1ef661d1cff4d876aa888a17669f9360f283ed80060f159425f3a71f53602e08e992b098801d02854176ae47f21ce1fb5b05d38eddc9060d0f11379635b3bc92bd518e239a943ec1d5ab7785cee107be4b215af4091f894de47181ecea59ede9ec59f380062ac28b1e3d701d90000000049454e44ae426082</data>
+    </image>
+    <image name="image3">
+        <data format="PNG" length="173">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b0000007449444154388ded92c10ac02008406ddf2d3b84ffed0ea3586a26d165e0830ea53e8504487e4b910f5489f19ea5a3ca0f8a896365b306c42dd613c649bdc2598316136219f0f936c0a2ef00d75a62614d3ab22996f2a362ffa337c5ebede962aad1a2e84aaaa2f750dd12748c0fd0ab9324677800596e28b1743f46860000000049454e44ae426082</data>
+    </image>
+    <image name="image4">
+        <data format="PNG" length="187">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b0000008249444154388dcdd341128020080550e8e02ebc38ad3273503e48537fe3e48c4f2425fa28e29c6f39920bf9276cb60185358877611388c2576418cda015f520b4e6b55be109dc0622b8e22acf31056e18dfdff80606aa551cc63564c4dcf80cd0201d577a5c85a8845fdc025ea5307afccd07e23a1df283ec2b37d9ad5fb4dfefd49cfbf72fac98c8cc890000000049454e44ae426082</data>
+    </image>
+    <image name="image5">
+        <data format="PNG" length="248">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b000000bf49444154388dd593410a83301045df488ee51dbc8c3ba98bf46a9eabd385350d266362444a3f0c4266fcf3f824f06f12402b66da8c55f3de2212cf9d92cb98c0ba2d7c4544cf9a07638bbad53c4491235ecf7cc1623697a92540c11ff4fda75275015d24a9389e7d6f53df4fe4ccab323eea0f03c0c4b2a0712ce6add89b59b7661c3be095985f261679ee4ebcc22c9788551fe6a2cbc4969a894bcb6f23ee361aab62e252c57294dfbfb610bbf2c897b8a46cc6677eaa519571fa087ea83762da9abacb20235f0000000049454e44ae426082</data>
+    </image>
+    <image name="image6">
+        <data format="PNG" length="270">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b000000d549444154388dc5955d0a84300c8427e2a90a9e6c8b0f4b3dd982d7ca3e58d7fe4cd0ba5d7640024df265da0a057e2439c9eb8d9eaa8841a0c9aad8c82ab32f9c425be1e30e0dcf00c00308f0b3a7a07410a9d7142e00b42c5a5fab696b979b1c837fc0c316b6e4165b64f78d716359919bdc4570de47c04732dd5e5bcc35f0c97762ae787936dccf7513577e79f48c4b27aa0f1327b240f5117fcbe348aa33b6e0224b054d0746b8025e2e3b3e73cde0dd1c97f02e8ed9d0af1db381224bdf33eee698a934a0f617b45540d00bcf4ca08fc0dff406e325c1981bc418760000000049454e44ae426082</data>
+    </image>
+</images>
+<connections>
+    <connection>
+        <sender>editUndoAction</sender>
+        <signal>activated()</signal>
+        <receiver>mainTextWindow</receiver>
+        <slot>undo()</slot>
+    </connection>
+    <connection>
+        <sender>editRedoAction</sender>
+        <signal>activated()</signal>
+        <receiver>mainTextWindow</receiver>
+        <slot>redo()</slot>
+    </connection>
+    <connection>
+        <sender>editCutAction</sender>
+        <signal>activated()</signal>
+        <receiver>mainTextWindow</receiver>
+        <slot>cut()</slot>
+    </connection>
+    <connection>
+        <sender>editCopyAction</sender>
+        <signal>activated()</signal>
+        <receiver>mainTextWindow</receiver>
+        <slot>copy()</slot>
+    </connection>
+    <connection>
+        <sender>editPasteAction</sender>
+        <signal>activated()</signal>
+        <receiver>mainTextWindow</receiver>
+        <slot>paste()</slot>
+    </connection>
+    <connection>
+        <sender>helpAboutAction</sender>
+        <signal>activated()</signal>
+        <receiver>tinaptMain</receiver>
+        <slot>helpAbout()</slot>
+    </connection>
+    <connection>
+        <sender>pbQuitMain</sender>
+        <signal>clicked()</signal>
+        <receiver>tinaptMain</receiver>
+        <slot>close()</slot>
+    </connection>
+    <connection>
+        <sender>fileExitAction</sender>
+        <signal>activated()</signal>
+        <receiver>tinaptMain</receiver>
+        <slot>close()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="local" impldecl="in implementation">tinaptmain.ui.h</include>
+</includes>
+<slots>
+    <slot>fileExit()</slot>
+    <slot>editUndo()</slot>
+    <slot>editRedo()</slot>
+    <slot>editCut()</slot>
+    <slot>editCopy()</slot>
+    <slot>editPaste()</slot>
+    <slot>helpIndex()</slot>
+    <slot>helpContents()</slot>
+    <slot>helpAbout()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

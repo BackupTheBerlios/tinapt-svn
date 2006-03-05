@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Project SYSTEM "Project-3.8.dtd">
+<!-- Project file for project tinapt -->
+<!-- Saved: 2006-02-21, 20:50:32 -->
+<!-- Copyright (C) 2006 Tina Isaksen, tina@bestemselv.com -->
+<Project version="3.8">
+  <ProgLanguage mixed="0">Python</ProgLanguage>
+  <UIType>Qt</UIType>
+  <Description>A simple APT GUI frontend</Description>
+  <Version>0.1</Version>
+  <Author>Tina Isaksen</Author>
+  <Email>tina@bestemselv.com</Email>
+  <Sources>
+    <Source>
+      <Name>tinaptGUI.py</Name>
+    </Source>
+    <Source>
+      <Name>tinaptMainProg.py</Name>
+    </Source>
+  </Sources>
+  <Forms>
+    <Form>
+      <Name>tinaptmain.ui.h</Name>
+    </Form>
+    <Form>
+      <Name>tinaptmain.ui</Name>
+    </Form>
+  </Forms>
+  <Translations>
+  </Translations>
+  <Interfaces>
+  </Interfaces>
+  <Others>
+    <Other>
+      <Name>tinaptPackages</Name>
+    </Other>
+  </Others>
+  <MainScript>
+    <Name>tinaptMainProg.py</Name>
+  </MainScript>
+  <Vcs>
+    <VcsType>None</VcsType>
+  </Vcs>
+  <FiletypeAssociations>
+    <FiletypeAssociation pattern="*.py" type="SOURCES" />
+    <FiletypeAssociation pattern="*.ui.h" type="FORMS" />
+    <FiletypeAssociation pattern="*.idl" type="INTERFACES" />
+    <FiletypeAssociation pattern="*.ui" type="FORMS" />
+    <FiletypeAssociation pattern="*.ptl" type="SOURCES" />
+  </FiletypeAssociations>
+</Project>

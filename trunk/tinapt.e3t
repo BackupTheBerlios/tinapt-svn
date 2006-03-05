@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Tasks SYSTEM "Tasks-3.8.dtd">
+<!-- Tasks file for project tinapt -->
+<!-- Saved: 2006-03-04, 08:50:39 -->
+<Tasks version="3.8">
+  <Task priority="0" completed="0" bugfix="0">
+    <Description>Det må ikke være mulig å lagre tom sources.list</Description>
+    <Created>2006-02-21, 18:21:17</Created>
+  </Task>
+</Tasks>
