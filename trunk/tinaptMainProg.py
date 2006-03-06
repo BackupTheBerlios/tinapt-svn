@@ -133,8 +133,9 @@ class tinaptMainClass(tinaptMain):
         self.upgradeProcess.start()
         
     def readOutput(self):
-      self.mainTextWindow.append(QString(self.upgradeProcess.readStdout()))
-    
+        self.mainTextWindow.append(QString(self.upgradeProcess.readStdout()))
+        
+            
     def upgradeProcessExit(self):
         self.mainTextWindow.append("Done!")
         

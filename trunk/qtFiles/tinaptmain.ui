@@ -169,6 +169,28 @@
             <iconset>image4</iconset>
         </property>
     </widget>
+    <widget class="QTextEdit">
+        <property name="name">
+            <cstring>mainTextWindow</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>170</y>
+                <width>570</width>
+                <height>260</height>
+            </rect>
+        </property>
+        <property name="resizePolicy">
+            <enum>AutoOneFit</enum>
+        </property>
+        <property name="textFormat">
+            <enum>AutoText</enum>
+        </property>
+        <property name="linkUnderline">
+            <bool>false</bool>
+        </property>
+    </widget>
     <spacer>
         <property name="name">
             <cstring>spacer1</cstring>
@@ -194,28 +216,6 @@
             </rect>
         </property>
     </spacer>
-    <widget class="QTextEdit">
-        <property name="name">
-            <cstring>mainTextWindow</cstring>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>10</x>
-                <y>170</y>
-                <width>570</width>
-                <height>260</height>
-            </rect>
-        </property>
-        <property name="resizePolicy">
-            <enum>AutoOneFit</enum>
-        </property>
-        <property name="textFormat">
-            <enum>AutoText</enum>
-        </property>
-        <property name="linkUnderline">
-            <bool>false</bool>
-        </property>
-    </widget>
     <widget class="QTabWidget">
         <property name="name">
             <cstring>mainTabWidget</cstring>
@@ -597,31 +597,6 @@
                     </rect>
                 </property>
             </spacer>
-            <spacer>
-                <property name="name">
-                    <cstring>spacer18</cstring>
-                </property>
-                <property name="orientation">
-                    <enum>Horizontal</enum>
-                </property>
-                <property name="sizeType">
-                    <enum>Expanding</enum>
-                </property>
-                <property name="sizeHint">
-                    <size>
-                        <width>30</width>
-                        <height>20</height>
-                    </size>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>200</x>
-                        <y>10</y>
-                        <width>30</width>
-                        <height>20</height>
-                    </rect>
-                </property>
-            </spacer>
             <widget class="QPushButton">
                 <property name="name">
                     <cstring>pbDistUpgrade</cstring>
@@ -669,6 +644,31 @@
                     <string>Click fro security upgrades</string>
                 </property>
             </widget>
+            <spacer>
+                <property name="name">
+                    <cstring>spacer18</cstring>
+                </property>
+                <property name="orientation">
+                    <enum>Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                    <enum>Expanding</enum>
+                </property>
+                <property name="sizeHint">
+                    <size>
+                        <width>30</width>
+                        <height>20</height>
+                    </size>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>200</x>
+                        <y>10</y>
+                        <width>30</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </spacer>
         </widget>
         <widget class="QWidget">
             <property name="name">
