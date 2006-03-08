@@ -23,6 +23,8 @@ import popen2
 from qt import *
 from  tinaptGUI import tinaptMain
 
+
+
 __version__ = '0.1a'
 
 class tinaptMainClass(tinaptMain):
@@ -114,6 +116,7 @@ class tinaptMainClass(tinaptMain):
 
         
     ## Upgrade tab ##
+    ## Does not yet work ##
     def doUpgrade(self):
     # Prepare widgets #
         self.mainTextWindow.setEnabled(1)
@@ -129,13 +132,41 @@ class tinaptMainClass(tinaptMain):
         self.connect(self.upgradeProcess, SIGNAL("readyReadStdout()"), self.readOutput)
         self.connect(self.upgradeProcess, SIGNAL("processExited()"), self.upgradeProcessExit)
         self.connect(self.upgradeProcess, SIGNAL("readyReadStderr()"), self.readUpgradeErrors)
-        self.upgradeProcess.setArguments((QStringList.split(" ", "apt-get upgrade")))
+        self.upgradeProcess.setArguments((QStringList.split(" ", "apt-get -d upgrade"))) # -d option temporary for testing purposes
         self.upgradeProcess.start()
         
     def readOutput(self):
-        self.mainTextWindow.append(QString(self.upgradeProcess.readStdout()))
+        outputString = QString(self.upgradeProcess.readStdout())
+        self.mainTextWindow.append(outputString)
         
+        # Check if upgradeProcess ask to continue
+        if outputString.endsWith("? "):
+            qApp.processEvents()
             
+            # Isolate the yes/ no characters needed for input.
+            yesOptionString = outputString.right(6)
+            yesOption = yesOptionString.left(1)
+            noOptionString = outputString.right(4)
+            noOption = noOptionString.left(1)
+            answer = yesOption # Temporary setting answer for testing. Will be replaced by user input.
+            self.mainTextWindow.append(answer) # Temporary to verify answer
+            
+            # Feed answer to stdin
+            if answer == yesOption:
+                self.mainTextWindow.append("This is the yesOption!!") # Temporary just to verify that Y is isolated
+                self.upgradeProcess.writeToStdin("y") # Upper/ lower case makes no difference
+                ## self.upgradeProcess.writeToStdin(chr(121)) #No difference
+                
+            else:
+                self.mainTextWindow.append("This is the noOption!!") # Temporary  just to verify that Y is isolated
+                self.upgradeProcess.writeToStdin(noOption)
+            
+            self.upgradeProcess.closeStdin()
+            ouputString = " "
+
+    def readUpgradeErrors(self):
+        self.mainTextWindow.append(QString(self.upgradeProcess.readStderr()))
+        
     def upgradeProcessExit(self):
         self.mainTextWindow.append("Done!")
         
@@ -145,10 +176,9 @@ class tinaptMainClass(tinaptMain):
         self.pbSaveMain.setEnabled(0)
         self.mainTextWindow.setReadOnly(1) 
         
-    def readUpgradeErrors(self):
-        self.mainTextWindow.append(QString(self.upgradeProcess.readStderr()))
+    
       
-##        
+##     Just to quicly test that stuff works ##
 ##    def doTest(self):
 ##        print "It works"
 

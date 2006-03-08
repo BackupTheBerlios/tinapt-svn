@@ -2,7 +2,7 @@ Tinapt V0.1a
 
 This program is not yet ready for use. Do not use this program in it's current state unless you know what you are doing since it's quite possible that it will brake your system.
 
-There are no installer yet. To run just make 'tinapt' and 'tinaptMainProgram.py' executable (chmod +x) or copy all files to a directory that is already in your PATH. Execute 'tinapt' to run the program.
+There are no installer yet. To run just make 'tinapt' and 'tinaptMainProg.py' executable (chmod +x) or copy all files to a directory that is already in your PATH. Execute 'tinapt' to run the program.
 
 Files:
 

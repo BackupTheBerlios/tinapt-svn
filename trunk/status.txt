@@ -1,0 +1,17 @@
+08032006
+
+General:
+	Cancel button not done yet.
+	Quit button does not ask for comfirmation yet.
+
+Sources tab:
+	Update OK
+	Edit sources OK
+	Problem: It's possible to save an _empty_ sources.list
+
+Upgrade tab:
+	Nothing works yet. See comments in code for details.
+
+Packages tab: 
+	Not started.
+	 
