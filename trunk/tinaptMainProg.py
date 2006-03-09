@@ -19,7 +19,6 @@
 import sys
 import os
 import commands
-import popen2
 from qt import *
 from  tinaptGUI import tinaptMain
 
@@ -130,7 +129,7 @@ class tinaptMainClass(tinaptMain):
         
         self.upgradeProcess = QProcess()
         self.connect(self.upgradeProcess, SIGNAL("readyReadStdout()"), self.readOutput)
-        self.connect(self.upgradeProcess, SIGNAL("processExited()"), self.upgradeProcessExit)
+##        self.connect(self.upgradeProcess, SIGNAL("processExited()"), self.upgradeProcessExit)
         self.connect(self.upgradeProcess, SIGNAL("readyReadStderr()"), self.readUpgradeErrors)
         self.upgradeProcess.setArguments((QStringList.split(" ", "apt-get -d upgrade"))) # -d option temporary for testing purposes
         self.upgradeProcess.start()
@@ -143,32 +142,41 @@ class tinaptMainClass(tinaptMain):
         if outputString.endsWith("? "):
             qApp.processEvents()
             
-            # Isolate the yes/ no characters needed for input.
-            yesOptionString = outputString.right(6)
-            yesOption = yesOptionString.left(1)
-            noOptionString = outputString.right(4)
-            noOption = noOptionString.left(1)
-            answer = yesOption # Temporary setting answer for testing. Will be replaced by user input.
-            self.mainTextWindow.append(answer) # Temporary to verify answer
+            #### need to call QDialog 'confirmUpgrade' and have it set 'answer' ####
             
-            # Feed answer to stdin
+            # Determine action to take
             if answer == yesOption:
-                self.mainTextWindow.append("This is the yesOption!!") # Temporary just to verify that Y is isolated
-                self.upgradeProcess.writeToStdin("y") # Upper/ lower case makes no difference
-                ## self.upgradeProcess.writeToStdin(chr(121)) #No difference
+                self.mainTextWindow.append("This is the yesOption!!") # Temporary just to verify that yesOption is picked up
+                self.upgradeProcess.tryTerminate()
+                self.doCommitUpgrade()
                 
             else:
                 self.mainTextWindow.append("This is the noOption!!") # Temporary  just to verify that Y is isolated
-                self.upgradeProcess.writeToStdin(noOption)
+                self.upgradeProcess.tryTerminate()
+                self.mainTextWindow.append("User terminated")
             
-            self.upgradeProcess.closeStdin()
             ouputString = " "
 
     def readUpgradeErrors(self):
         self.mainTextWindow.append(QString(self.upgradeProcess.readStderr()))
+    
+    def doCommitUpgrade(self):
+        # Prepare window
+        self.mainTextWindow.clear()
+        self.mainTextWindow.setFocus()
+        self.mainTextWindow.setCursorPosition(0, 0)
         
-    def upgradeProcessExit(self):
-        self.mainTextWindow.append("Done!")
+        self.commitUpgrade = QProcess()
+        self.connect(self.commitUpgrade, SIGNAL("readyReadStdout()"), self.readCommitUpgradeOutput)
+        self.connect(self.commitUpgrade, SIGNAL("processExited()"), self.readCommitUpgradeExit)
+        self.commitUpgrade.setArguments((QStringList.split(" ", "apt-get --yes -d upgrade"))) # -d option temporary for testing purposes
+        self.commitUpgrade.start()
+        
+    def readCommitUpgradeOutput(self):
+        self.mainTextWindow.append(QString(self.commitUpgrade.readStdout()))
+    
+    def readCommitUpgradeExit(self):
+        self.mainTextWindow.append("Operation completed")
         
         # Return widgets to defaults (foolproofing) #
         self.upgradeMessage.setText(" ")
