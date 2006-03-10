@@ -21,6 +21,7 @@ import os
 import commands
 from qt import *
 from  tinaptGUI import tinaptMain
+from confUpg import  confUpgrade
 
 
 
@@ -32,6 +33,7 @@ class tinaptMainClass(tinaptMain):
         # Main buttons
         self.connect(self.pbSaveMain, SIGNAL("clicked()"), self.doSaveMain)
         self.connect(self.pbClearMain, SIGNAL("clicked()"), self.doClearMain)
+        self.connect(self.pbCancelMain, SIGNAL("clicked()"), self.doCancelMain)
         self.connect(self.mainTextWindow, SIGNAL("textChanged()"), self.doEnableSavePb)
         
         # Sources tab buttons
@@ -56,6 +58,11 @@ class tinaptMainClass(tinaptMain):
             writefile = open("sources.list" , "w")
             writefile.write(str(self.mainTextWindow.text()))
             writefile.close()
+
+    def doCancelMain(self):
+        if self.mainTabWidget.currentPage() == self.upgrade:
+            self.upgradeProcess.kill()
+            self.mainTextWindow.append("Canseled by user")
             
     def doClearMain(self):
         self.mainTextWindow.clear()
@@ -92,6 +99,7 @@ class tinaptMainClass(tinaptMain):
         self.sourcesMessage.setText(" ")
         self.sourcesMessage.setEnabled(0)
         self.pbSaveMain.setEnabled(0)
+        self.pbCancelMain.setEnabled(0)
         self.mainTextWindow.setReadOnly(1)        
         
     def doEditSources(self):
@@ -115,7 +123,6 @@ class tinaptMainClass(tinaptMain):
 
         
     ## Upgrade tab ##
-    ## Does not yet work ##
     def doUpgrade(self):
     # Prepare widgets #
         self.mainTextWindow.setEnabled(1)
@@ -123,6 +130,7 @@ class tinaptMainClass(tinaptMain):
         self.upgradeMessage.setEnabled(1)
         self.upgradeMessage.setReadOnly(0)
         self.mainTextWindow.clear()
+        self.pbCancelMain.setEnabled(1)
         self.pbSaveMain.setEnabled(0)
         
         self.upgradeMessage.setText("Upgrading packages, please wait...")
@@ -141,17 +149,13 @@ class tinaptMainClass(tinaptMain):
         # Check if upgradeProcess ask to continue
         if outputString.endsWith("? "):
             qApp.processEvents()
-            
-            #### need to call QDialog 'confirmUpgrade' and have it set 'answer' ####
+            dialog = confUpgrade(self)
             
             # Determine action to take
-            if answer == yesOption:
-                self.mainTextWindow.append("This is the yesOption!!") # Temporary just to verify that yesOption is picked up
+            if dialog.exec_loop() == QDialog.Accepted:
                 self.upgradeProcess.tryTerminate()
                 self.doCommitUpgrade()
-                
             else:
-                self.mainTextWindow.append("This is the noOption!!") # Temporary  just to verify that Y is isolated
                 self.upgradeProcess.tryTerminate()
                 self.mainTextWindow.append("User terminated")
             

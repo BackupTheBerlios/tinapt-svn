@@ -11,13 +11,15 @@ README:			This file
 licence.txt:		The Gnu General Public Licence
 tinapt:			Tinapt startup shell-script
 tinaptMainProg.py: 	The main python program
-tinaptGUI.py:		The GUI python module created with 'pyuic'. **DO NOT MODIFY THIS FILE!** 
-tinapt.e3p		Eric3 IDE project file (Not required)
-tinapt.e3t		Eric3 IDE project file (Not required)
+tinaptGUI.py:		The GUI python module created with 'pyuic'. **DO NOT MODIFY THIS FILE!**
+confUpg.py:		The upgrade confirmation dialog 
+tinapt.e3p:		Eric3 IDE project file (Not required)
+tinapt.e3t:		Eric3 IDE project file (Not required)
 
 /trunk/icons
 *A collection of icons used in the GUI kept for convenience. Not required unless changes are to be made*
 
 /trunk/qtFiles
 tinaptmain.ui:		The Qt3 designer flile containing the GUI. Only required if changes to the GUI are to be made.
+confUpgrade.ui		The Qt3 designer file for the upgrade confirmation dialog.
 tinaptmain.ui.h		The Qt3 designer C header file. Not required.

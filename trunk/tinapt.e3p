@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-3.8.dtd">
 <!-- Project file for project tinapt -->
-<!-- Saved: 2006-03-05, 22:13:31 -->
+<!-- Saved: 2006-03-10, 03:13:41 -->
 <!-- Copyright (C) 2006 Tina Isaksen, tina@bestemselv.com -->
 <Project version="3.8">
   <ProgLanguage mixed="0">Python</ProgLanguage>
@@ -16,6 +16,9 @@
     </Source>
     <Source>
       <Name>tinaptMainProg.py</Name>
+    </Source>
+    <Source>
+      <Name>confUpg.py</Name>
     </Source>
   </Sources>
   <Forms>
@@ -39,7 +42,7 @@
     <FiletypeAssociation pattern="*.ui.h" type="FORMS" />
     <FiletypeAssociation pattern="*.ui" type="FORMS" />
     <FiletypeAssociation pattern="*.idl" type="INTERFACES" />
-    <FiletypeAssociation pattern="*.py" type="SOURCES" />
     <FiletypeAssociation pattern="*.ptl" type="SOURCES" />
+    <FiletypeAssociation pattern="*.py" type="SOURCES" />
   </FiletypeAssociations>
 </Project>

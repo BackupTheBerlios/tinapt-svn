@@ -1,7 +1,6 @@
 08032006
 
 General:
-	Cancel button not done yet.
 	Quit button does not ask for comfirmation yet.
 
 Sources tab:
@@ -10,7 +9,8 @@ Sources tab:
 	Problem: It's possible to save an _empty_ sources.list
 
 Upgrade tab:
-	Nothing works yet. See comments in code for details.
+	Upgrade works.
+	Problem: Cancel button does not cancel anything :/
 
 Packages tab: 
 	Not started.
