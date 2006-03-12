@@ -143,31 +143,6 @@
             </rect>
         </property>
     </spacer>
-    <spacer>
-        <property name="name">
-            <cstring>spacer4</cstring>
-        </property>
-        <property name="orientation">
-            <enum>Vertical</enum>
-        </property>
-        <property name="sizeType">
-            <enum>Expanding</enum>
-        </property>
-        <property name="sizeHint">
-            <size>
-                <width>20</width>
-                <height>50</height>
-            </size>
-        </property>
-        <property name="geometry">
-            <rect>
-                <x>150</x>
-                <y>0</y>
-                <width>20</width>
-                <height>50</height>
-            </rect>
-        </property>
-    </spacer>
     <widget class="QLabel">
         <property name="name">
             <cstring>textLabel1</cstring>
@@ -181,10 +156,34 @@
             </rect>
         </property>
         <property name="text">
-            <string>&lt;font color="#aa0000"&gt;&lt;font size="+1"&gt;&lt;b&gt;&lt;p align="center"&gt;Upgrade these packages?&lt;/p&gt;&lt;/b&gt;&lt;/font&gt;&lt;/font&gt;</string>
+            <string>&lt;font face="Arial"&gt;&lt;font size="+1"&gt;&lt;p align="center"&gt;Upgrade these packages?&lt;/p&gt;&lt;/font&gt;&lt;/font&gt;</string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>pixmapLabel2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>140</x>
+                <y>10</y>
+                <width>60</width>
+                <height>50</height>
+            </rect>
+        </property>
+        <property name="pixmap">
+            <pixmap>image0</pixmap>
+        </property>
+        <property name="scaledContents">
+            <bool>true</bool>
         </property>
     </widget>
 </widget>
+<images>
+    <image name="image0">
+        <data format="XPM.GZ" length="1897">789ccdd5b14ec3400c06e03d4f714ab608d120a12e8847406244420cbe732b18ba403b20c4bb135fee2ef6d92119eb54555d7ffde3a68abaebddcbf393eb77cdd719ce1fc18577f8743d5e4ea7efd7b7c79fa6bd1fdcf8d8bbbbf6a669d105d70db1a8bda5767fa083da8e5a7fa0835aa036781820624fed31e4cf86d81e4bd4c68ab6db54576c0160ab05efbdc6a61d69f041e1053beea0832d0bb400e860db42795eb1e093ad834d3b1a3482b58db188a8832d4bb168042b3b6d9bac0c362ccda3ad836b9b2e42b62258db389d6c155cd9143b5b1eacec344b56064b9b639965c1b54d936c45b0b02596db39b8b2e57d54a79216ac1b87054b3b5364d8b03cb6eccb8385e514f5c6b315db323a0773cbbf18b2d779522cc52e553a23b7ff14d43bac50711d964bff166b753d76eb7fd6ef43f30771ab68e6</data>
+    </image>
+</images>
 <connections>
     <connection>
         <sender>buttonOk</sender>

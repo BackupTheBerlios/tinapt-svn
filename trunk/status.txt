@@ -1,4 +1,4 @@
-08032006
+12032006
 
 General:
 	Quit button does not ask for comfirmation yet.
@@ -10,8 +10,9 @@ Sources tab:
 
 Upgrade tab:
 	Upgrade works.
+	Dist-upgrade works
 	Problem: Cancel button does not cancel anything :/
 
 Packages tab: 
-	Not started.
+	Not started yet
 	 

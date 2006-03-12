@@ -1,6 +1,6 @@
 #!/usr/bin/python2.4
-### -*- coding: latin1 -*-
-#
+### -*- coding: utf-8 -*-
+
 ## ###### Tinapt ########
 ##
 ## Copyright (c) 2005 Tina Isaksen
@@ -42,7 +42,7 @@ class tinaptMainClass(tinaptMain):
         
         # Upgrade tab buttons
         self.connect(self.pbUpgrade, SIGNAL("clicked()"), self.doUpgrade)
-##        self.connect(self.pbDistUpgrade, SIGNAL("clicked()"), self.doDistUpgrade)
+        self.connect(self.pbDistUpgrade, SIGNAL("clicked()"), self.doDistUpgrade)
 ##        self.connect(self.pbSecUpgrade, SIGNAL("clicked()"), self.doSecUpgrade)
         
         # Set defaults
@@ -60,8 +60,9 @@ class tinaptMainClass(tinaptMain):
             writefile.close()
 
     def doCancelMain(self):
+        
         if self.mainTabWidget.currentPage() == self.upgrade:
-            self.upgradeProcess.kill()
+            self.commitUpgrade.tryTerminate()
             self.mainTextWindow.append("Canseled by user")
             
     def doClearMain(self):
@@ -123,6 +124,7 @@ class tinaptMainClass(tinaptMain):
 
         
     ## Upgrade tab ##
+    ## Upgrade button **
     def doUpgrade(self):
     # Prepare widgets #
         self.mainTextWindow.setEnabled(1)
@@ -133,28 +135,32 @@ class tinaptMainClass(tinaptMain):
         self.pbCancelMain.setEnabled(1)
         self.pbSaveMain.setEnabled(0)
         
-        self.upgradeMessage.setText("Upgrading packages, please wait...")
+        self.upgradeMessage.setText("Looking for upgrades, please wait...")
         
         self.upgradeProcess = QProcess()
         self.connect(self.upgradeProcess, SIGNAL("readyReadStdout()"), self.readOutput)
 ##        self.connect(self.upgradeProcess, SIGNAL("processExited()"), self.upgradeProcessExit)
         self.connect(self.upgradeProcess, SIGNAL("readyReadStderr()"), self.readUpgradeErrors)
-        self.upgradeProcess.setArguments((QStringList.split(" ", "apt-get -d upgrade"))) # -d option temporary for testing purposes
+        self.upgradeProcess.setArguments((QStringList.split(" ", "apt-get upgrade"))) # -d option temporary for testing purposes
         self.upgradeProcess.start()
         
     def readOutput(self):
         outputString = QString(self.upgradeProcess.readStdout())
+        cr = QString("\n")  # Make QString carriage return
         self.mainTextWindow.append(outputString)
         
         # Check if upgradeProcess ask to continue
         if outputString.endsWith("? "):
             qApp.processEvents()
+            # Isolate the yes character needed for input.
+            yesOptionString = outputString.right(6)
+            yesOption = yesOptionString.left(1) + cr
             dialog = confUpgrade(self)
             
             # Determine action to take
             if dialog.exec_loop() == QDialog.Accepted:
-                self.upgradeProcess.tryTerminate()
-                self.doCommitUpgrade()
+                self.upgradeMessage.setText("Upgrading packages, please wait...")
+                self.upgradeProcess.writeToStdin(yesOption)
             else:
                 self.upgradeProcess.tryTerminate()
                 self.mainTextWindow.append("User terminated")
@@ -164,29 +170,53 @@ class tinaptMainClass(tinaptMain):
     def readUpgradeErrors(self):
         self.mainTextWindow.append(QString(self.upgradeProcess.readStderr()))
     
-    def doCommitUpgrade(self):
-        # Prepare window
+
+    ## Dist-upgarde button ##
+    def doDistUpgrade(self):
+    # Prepare widgets #
+        self.mainTextWindow.setEnabled(1)
+        self.mainTextWindow.setReadOnly(0)
+        self.upgradeMessage.setEnabled(1)
+        self.upgradeMessage.setReadOnly(0)
         self.mainTextWindow.clear()
-        self.mainTextWindow.setFocus()
-        self.mainTextWindow.setCursorPosition(0, 0)
-        
-        self.commitUpgrade = QProcess()
-        self.connect(self.commitUpgrade, SIGNAL("readyReadStdout()"), self.readCommitUpgradeOutput)
-        self.connect(self.commitUpgrade, SIGNAL("processExited()"), self.readCommitUpgradeExit)
-        self.commitUpgrade.setArguments((QStringList.split(" ", "apt-get --yes -d upgrade"))) # -d option temporary for testing purposes
-        self.commitUpgrade.start()
-        
-    def readCommitUpgradeOutput(self):
-        self.mainTextWindow.append(QString(self.commitUpgrade.readStdout()))
-    
-    def readCommitUpgradeExit(self):
-        self.mainTextWindow.append("Operation completed")
-        
-        # Return widgets to defaults (foolproofing) #
-        self.upgradeMessage.setText(" ")
-        self.upgradeMessage.setEnabled(0)
+        self.pbCancelMain.setEnabled(1)
         self.pbSaveMain.setEnabled(0)
-        self.mainTextWindow.setReadOnly(1) 
+        
+        self.upgradeMessage.setText("Looking for upgrades, please wait...")
+        
+        self.distUpgradeProcess = QProcess()
+        self.connect(self.distUpgradeProcess, SIGNAL("readyReadStdout()"), self.readDistOutput)
+##        self.connect(self.upgradeProcess, SIGNAL("processExited()"), self.upgradeProcessExit)
+        self.connect(self.distUpgradeProcess, SIGNAL("readyReadStderr()"), self.readDistUpgradeErrors)
+        self.distUpgradeProcess.setArguments((QStringList.split(" ", "apt-get dist-upgrade"))) 
+        self.distUpgradeProcess.start()
+        
+    def readDistOutput(self):
+        outputString = QString(self.distUpgradeProcess.readStdout())
+        cr = QString("\n")  # Make QString carriage return
+        self.mainTextWindow.append(outputString)
+        
+        # Check if upgradeProcess ask to continue
+        if outputString.endsWith("? "):
+            qApp.processEvents()
+            # Isolate the yes character needed for input.
+            yesOptionString = outputString.right(6)
+            yesOption = yesOptionString.left(1) + cr
+            dialog = confUpgrade(self)
+            
+            # Determine action to take
+            if dialog.exec_loop() == QDialog.Accepted:
+                self.upgradeMessage.setText("Upgrading distrobution, please wait...")
+                self.distUpgradeProcess.writeToStdin(yesOption)
+            else:
+                self.distUpgradeProcess.tryTerminate()
+                self.mainTextWindow.append("User terminated")
+            
+            ouputString = " "
+
+    def readDistUpgradeErrors(self):
+        self.mainTextWindow.append(QString(self.distUpgradeProcess.readStderr()))
+    
         
     
       
