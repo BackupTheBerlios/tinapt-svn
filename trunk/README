@@ -2,7 +2,10 @@ Tinapt V0.1a
 
 This program is not yet ready for use. Do not use this program in it's current state unless you know what you are doing since it's quite possible that it will brake your system.
 
-There are no installer yet. To run just make 'tinapt' and 'tinaptMainProg.py' executable (chmod +x) or copy all files to a directory that is already in your PATH. Execute 'tinapt' to run the program.
+Tinapt does not yet support 'apt-listbugs'. The program will hang if apt-listbugs is installed and there are registered bugs on some of the packages about to be upgraded/ installed.
+
+There is no installer yet. To run just make 'tinapt' and 'tinaptMainProg.py' executable (chmod +x) or copy all files to a directory that is already in your PATH. Execute 'tinapt' to run the program.
+
 
 Files:
 
@@ -11,8 +14,8 @@ README:			This file
 licence.txt:		The Gnu General Public Licence
 tinapt:			Tinapt startup shell-script
 tinaptMainProg.py: 	The main python program
-tinaptGUI.py:		The GUI python module created with 'pyuic'. **DO NOT MODIFY THIS FILE!**
-confUpg.py:		The upgrade confirmation dialog 
+tinaptGUI.py:		The GUI python module **DO NOT MODIFY THIS FILE!**
+confUpg.py:		The upgrade confirmation dialog **DO NOT MODIFY THIS FILE!**
 tinapt.e3p:		Eric3 IDE project file (Not required)
 tinapt.e3t:		Eric3 IDE project file (Not required)
 

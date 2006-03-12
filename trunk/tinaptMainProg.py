@@ -51,6 +51,8 @@ class tinaptMainClass(tinaptMain):
         self.sourcesMessage.setEnabled(0)
         self.upgradeMessage.setEnabled(0)
         
+        self.pbSecUpgrade.setEnabled(0) #Temporarily disabled (Need to figure out how to do just a sec upgrade)
+        
     
     def doSaveMain(self):
         # Save sources.list
@@ -139,14 +141,14 @@ class tinaptMainClass(tinaptMain):
         
         self.upgradeProcess = QProcess()
         self.connect(self.upgradeProcess, SIGNAL("readyReadStdout()"), self.readOutput)
-##        self.connect(self.upgradeProcess, SIGNAL("processExited()"), self.upgradeProcessExit)
+        self.connect(self.upgradeProcess, SIGNAL("processExited()"), self.upgradeProcessExit)
         self.connect(self.upgradeProcess, SIGNAL("readyReadStderr()"), self.readUpgradeErrors)
         self.upgradeProcess.setArguments((QStringList.split(" ", "apt-get upgrade"))) # -d option temporary for testing purposes
         self.upgradeProcess.start()
         
     def readOutput(self):
         outputString = QString(self.upgradeProcess.readStdout())
-        cr = QString("\n")  # Make QString carriage return
+        cr = QString("\n")  # Make a QString carriage return
         self.mainTextWindow.append(outputString)
         
         # Check if upgradeProcess ask to continue
@@ -162,13 +164,28 @@ class tinaptMainClass(tinaptMain):
                 self.upgradeMessage.setText("Upgrading packages, please wait...")
                 self.upgradeProcess.writeToStdin(yesOption)
             else:
-                self.upgradeProcess.tryTerminate()
                 self.mainTextWindow.append("User terminated")
+                self.upgradeProcess.tryTerminate()
+                #Kill upgradeProcess if tryTerminate fails
+                if self.upgradeProcess.isRunning() == "TRUE":
+                    QTimer.singleShot(100, self.upgradeProcessKill())
+                    
             
             ouputString = " "
 
     def readUpgradeErrors(self):
         self.mainTextWindow.append(QString(self.upgradeProcess.readStderr()))
+        
+    def upgradeProcessExit(self):
+        self.mainTextWindow.append("Operation completed as requested")
+        self.upgradeMessage.setText(" ")
+        self.upgradeMessage.setEnabled(0)
+        
+    def upgradeProcessKill(self):
+        self.upgradeProcess.kill()
+        self.mainTextWindow.append("Operation aborted")
+        self.upgradeMessage.setText(" ")
+        self.upgradeMessage.setEnabled(0)
     
 
     ## Dist-upgarde button ##
@@ -186,7 +203,7 @@ class tinaptMainClass(tinaptMain):
         
         self.distUpgradeProcess = QProcess()
         self.connect(self.distUpgradeProcess, SIGNAL("readyReadStdout()"), self.readDistOutput)
-##        self.connect(self.upgradeProcess, SIGNAL("processExited()"), self.upgradeProcessExit)
+        self.connect(self.distUpgradeProcess, SIGNAL("processExited()"), self.distUpgradeProcessExit)
         self.connect(self.distUpgradeProcess, SIGNAL("readyReadStderr()"), self.readDistUpgradeErrors)
         self.distUpgradeProcess.setArguments((QStringList.split(" ", "apt-get dist-upgrade"))) 
         self.distUpgradeProcess.start()
@@ -211,20 +228,39 @@ class tinaptMainClass(tinaptMain):
             else:
                 self.distUpgradeProcess.tryTerminate()
                 self.mainTextWindow.append("User terminated")
+                #Kill distUpgradeProcess if tryTerminate fails
+                if self.distUpgradeProcess.isRunning() == "TRUE":
+                    QTimer.singleShot(100, self.distUpgradeProcessKill())
             
             ouputString = " "
 
     def readDistUpgradeErrors(self):
         self.mainTextWindow.append(QString(self.distUpgradeProcess.readStderr()))
-    
         
+    def distUpgradeProcessExit(self):
+        self.mainTextWindow.append("Operation completed as requested")
+        self.upgradeMessage.setText(" ")
+        self.upgradeMessage.setEnabled(0)
+        
+    def distUpgradeProcessKill(self):
+        self.distUpgradeProcess.kill()
+        self.mainTextWindow.append("Operation aborted")
+        self.upgradeMessage.setText(" ")
+        self.upgradeMessage.setEnabled(0)
     
-      
-##     Just to quicly test that stuff works ##
+
+##     Just to quickly test that stuff works ##
 ##    def doTest(self):
 ##        print "It works"
 
 if __name__ == "__main__":
+# Psyco disabled for testing
+##    # Import Psyco if available
+##    try:
+##        import psyco
+##        psyco.full()
+##    except ImportError:
+##        pass
     app = QApplication(sys.argv)
     f = tinaptMainClass()
     f.show()
