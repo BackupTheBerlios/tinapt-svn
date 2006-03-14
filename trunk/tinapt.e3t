@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-3.8.dtd">
 <!-- Tasks file for project tinapt -->
-<!-- Saved: 2006-03-12, 17:34:04 -->
+<!-- Saved: 2006-03-13, 09:00:58 -->
 <Tasks version="3.8">
   <Task priority="0" completed="0" bugfix="0">
     <Description>Det må ikke være mulig å lagre tom sources.list</Description>
@@ -18,5 +18,9 @@
   <Task priority="1" completed="0" bugfix="0">
     <Description>Virker ikke med apt-listbugs</Description>
     <Created>2006-03-12, 16:57:28</Created>
+  </Task>
+  <Task priority="2" completed="0" bugfix="0">
+    <Description>Progressbar</Description>
+    <Created>2006-03-13, 08:49:18</Created>
   </Task>
 </Tasks>

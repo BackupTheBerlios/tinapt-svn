@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'tinaptmain.ui'
 #
-# Created: søn mar 12 15:24:39 2006
+# Created: man mar 13 08:47:49 2006
 #      by: The PyQt User Interface Compiler (pyuic) 3.15
 #
 # WARNING! All changes made in this file will be lost!
@@ -1008,6 +1008,46 @@ image13_data = \
     "\x82"
 image14_data = \
     "\x89\x50\x4e\x47\x0d\x0a\x1a\x0a\x00\x00\x00\x0d" \
+    "\x49\x48\x44\x52\x00\x00\x00\x10\x00\x00\x00\x10" \
+    "\x08\x06\x00\x00\x00\x1f\xf3\xff\x61\x00\x00\x01" \
+    "\x99\x49\x44\x41\x54\x38\x8d\x7d\x92\xbd\x8a\x14" \
+    "\x41\x14\x85\xbf\x53\xd5\x3d\x22\x86\x82\x98\xb9" \
+    "\x6c\x60\xa0\x2f\x60\x6a\x20\x08\x82\xc1\x62\xa0" \
+    "\x2f\x20\x0a\x1b\xa8\xd9\x9a\x08\x8a\x88\x81\x3a" \
+    "\xc8\x82\x66\x0a\x06\x1a\x4d\x30\x99\x34\x18\x98" \
+    "\x6c\x6c\x20\x26\xfb\x02\x8a\xae\xec\x0c\xce\x3a" \
+    "\x33\x55\xb7\x0c\xb6\xbb\x67\xba\x67\xdb\x4a\xea" \
+    "\xef\xde\xef\x9e\x73\xab\x94\x52\x02\xe0\xd3\xce" \
+    "\xd7\xc3\x45\xc7\x18\x0c\x0b\xd6\xd6\xce\xe8\xf1" \
+    "\xfd\x5b\x9c\x3c\x75\x9a\xdd\x6f\x5f\x00\xc8\x96" \
+    "\x83\x2e\x5e\x38\x47\xb4\x84\x99\x31\x9b\xcd\x09" \
+    "\xd1\x18\x8d\x27\x38\xef\xd9\xb8\x7a\x89\xc1\xb0" \
+    "\x48\xbf\x7f\x7d\xd7\xfa\xd9\xf3\x75\x8e\x6b\x57" \
+    "\x12\x20\x09\x39\x87\x73\x8e\x2c\x5f\xd4\xb8\xbe" \
+    "\x71\x99\xcd\xad\x7e\xaa\x54\xaf\x28\x00\xa8\xae" \
+    "\x04\x38\x81\x97\x30\x12\x83\x61\x51\xc7\x5c\xb9" \
+    "\x76\x33\x95\x21\xab\x00\x4a\xba\x9c\x50\x12\xce" \
+    "\x3b\x88\xc6\xdd\xdb\x37\xf8\xb9\x37\xe2\xc7\xde" \
+    "\x98\x8f\xc5\xe7\x6e\x0b\x0b\x2b\x3a\xb4\x22\x91" \
+    "\x39\xb1\x3f\x9a\x30\xfe\xf3\x97\xdc\x37\x53\x1a" \
+    "\x0a\x96\xbd\xd5\x20\x89\x60\x89\xe9\x3c\x70\x2c" \
+    "\xcf\xc8\xfe\x0f\x00\x4b\x89\x68\x86\x45\x23\x44" \
+    "\x63\x7f\x34\x61\x16\x02\x27\x8e\xf7\x88\xbd\x9c" \
+    "\x10\x63\x37\x20\x9a\x11\xcd\x00\x08\xd1\x38\x38" \
+    "\x98\x92\x48\x64\xde\x91\xf2\x0c\xe7\x22\xde\xab" \
+    "\x1b\x00\xe0\xe5\x98\x87\xc0\x74\x3a\x07\xa0\x97" \
+    "\x67\x24\x33\x24\x11\x9d\x88\xd6\xb4\xd9\x30\x24" \
+    "\x89\x7b\x0f\xb6\x99\x85\xc8\xc3\x67\x6f\x90\xc4" \
+    "\xd3\x97\xef\x40\xe2\xc5\xab\xf7\x75\x53\x3b\x01" \
+    "\x8d\x66\xb4\xc0\xcb\x73\x27\x20\x95\xf2\x2a\x95" \
+    "\x47\x26\xb4\x8e\x9a\x80\xea\x1f\x56\x53\xa9\xe4" \
+    "\xa8\xe7\xad\x46\xdd\xc4\xc1\xb0\x58\x7c\xd7\xb2" \
+    "\xca\xa3\xe7\x6f\x1b\xc1\xfd\xd7\x1f\x56\x00\x6a" \
+    "\xd3\x37\xb7\xfa\xf5\xc1\xf6\x93\x3b\x6a\xef\xdb" \
+    "\x80\x7f\xc9\x71\xaf\x49\xa4\x3b\xea\x8c\x00\x00" \
+    "\x00\x00\x49\x45\x4e\x44\xae\x42\x60\x82"
+image15_data = \
+    "\x89\x50\x4e\x47\x0d\x0a\x1a\x0a\x00\x00\x00\x0d" \
     "\x49\x48\x44\x52\x00\x00\x00\x16\x00\x00\x00\x16" \
     "\x08\x06\x00\x00\x00\xc4\xb4\x6c\x3b\x00\x00\x00" \
     "\xa0\x49\x44\x41\x54\x38\x8d\xd5\x95\x4d\x0a\x80" \
@@ -1026,7 +1066,7 @@ image14_data = \
     "\x82\x0f\xf9\xc0\x06\x9b\xb5\x1e\xcd\xed\x31\x8c" \
     "\x5c\x00\x00\x00\x00\x49\x45\x4e\x44\xae\x42\x60" \
     "\x82"
-image15_data = \
+image16_data = \
     "\x89\x50\x4e\x47\x0d\x0a\x1a\x0a\x00\x00\x00\x0d" \
     "\x49\x48\x44\x52\x00\x00\x00\x16\x00\x00\x00\x16" \
     "\x08\x06\x00\x00\x00\xc4\xb4\x6c\x3b\x00\x00\x00" \
@@ -1042,7 +1082,7 @@ image15_data = \
     "\xa5\x9e\xde\x9e\xc5\x9f\x38\x00\x62\xac\x28\xb1" \
     "\xe3\xd7\x01\xd9\x00\x00\x00\x00\x49\x45\x4e\x44" \
     "\xae\x42\x60\x82"
-image16_data = \
+image17_data = \
     "\x89\x50\x4e\x47\x0d\x0a\x1a\x0a\x00\x00\x00\x0d" \
     "\x49\x48\x44\x52\x00\x00\x00\x16\x00\x00\x00\x16" \
     "\x08\x06\x00\x00\x00\xc4\xb4\x6c\x3b\x00\x00\x00" \
@@ -1058,7 +1098,7 @@ image16_data = \
     "\x8c\x0f\xd0\xab\x93\x24\x67\x78\x00\x59\x6e\x28" \
     "\xb1\x74\x3f\x46\x86\x00\x00\x00\x00\x49\x45\x4e" \
     "\x44\xae\x42\x60\x82"
-image17_data = \
+image18_data = \
     "\x89\x50\x4e\x47\x0d\x0a\x1a\x0a\x00\x00\x00\x0d" \
     "\x49\x48\x44\x52\x00\x00\x00\x16\x00\x00\x00\x16" \
     "\x08\x06\x00\x00\x00\xc4\xb4\x6c\x3b\x00\x00\x00" \
@@ -1075,7 +1115,7 @@ image17_data = \
     "\xec\x2b\x37\xd9\xad\x5f\xb4\xdf\xef\xd4\x9c\xfb" \
     "\xf7\x2f\xac\x98\xc8\xcc\x89\x00\x00\x00\x00\x49" \
     "\x45\x4e\x44\xae\x42\x60\x82"
-image18_data = \
+image19_data = \
     "\x89\x50\x4e\x47\x0d\x0a\x1a\x0a\x00\x00\x00\x0d" \
     "\x49\x48\x44\x52\x00\x00\x00\x16\x00\x00\x00\x16" \
     "\x08\x06\x00\x00\x00\xc4\xb4\x6c\x3b\x00\x00\x00" \
@@ -1097,7 +1137,7 @@ image18_data = \
     "\xc6\x67\x7e\xaa\x51\x95\x71\xfa\x08\x7e\xa8\x37" \
     "\x62\xda\x9a\xba\xcb\x20\x23\x5f\x00\x00\x00\x00" \
     "\x49\x45\x4e\x44\xae\x42\x60\x82"
-image19_data = \
+image20_data = \
     "\x89\x50\x4e\x47\x0d\x0a\x1a\x0a\x00\x00\x00\x0d" \
     "\x49\x48\x44\x52\x00\x00\x00\x16\x00\x00\x00\x16" \
     "\x08\x06\x00\x00\x00\xc4\xb4\x6c\x3b\x00\x00\x00" \
@@ -1167,6 +1207,8 @@ class tinaptMain(QMainWindow):
         self.image18.loadFromData(image18_data,"PNG")
         self.image19 = QPixmap()
         self.image19.loadFromData(image19_data,"PNG")
+        self.image20 = QPixmap()
+        self.image20.loadFromData(image20_data,"PNG")
         if not name:
             self.setName("tinaptMain")
 
@@ -1203,7 +1245,7 @@ class tinaptMain(QMainWindow):
         self.mainTextWindow.setLinkUnderline(0)
 
         self.mainTabWidget = QTabWidget(self.centralWidget(),"mainTabWidget")
-        self.mainTabWidget.setGeometry(QRect(10,30,570,120))
+        self.mainTabWidget.setGeometry(QRect(10,30,580,120))
 
         self.sources = QWidget(self.mainTabWidget,"sources")
 
@@ -1241,40 +1283,44 @@ class tinaptMain(QMainWindow):
 
         self.packages = QWidget(self.mainTabWidget,"packages")
 
-        self.pbSearch = QPushButton(self.packages,"pbSearch")
-        self.pbSearch.setGeometry(QRect(80,10,78,22))
-        self.pbSearch.setIconSet(QIconSet(self.image10))
-
-        self.pbShow = QPushButton(self.packages,"pbShow")
-        self.pbShow.setGeometry(QRect(190,10,78,22))
-        self.pbShow.setIconSet(QIconSet(self.image11))
-
-        self.pbInstall = QPushButton(self.packages,"pbInstall")
-        self.pbInstall.setGeometry(QRect(300,10,80,22))
-        self.pbInstall.setIconSet(QIconSet(self.image12))
-
-        self.pbRemove = QPushButton(self.packages,"pbRemove")
-        self.pbRemove.setGeometry(QRect(410,10,80,22))
-        self.pbRemove.setIconSet(QIconSet(self.image13))
-
         self.packageUserInput = QLineEdit(self.packages,"packageUserInput")
         self.packageUserInput.setGeometry(QRect(40,50,480,20))
         self.packageUserInput.setMaxLength(200)
+
+        self.pbSearch = QPushButton(self.packages,"pbSearch")
+        self.pbSearch.setGeometry(QRect(20,10,90,22))
+        self.pbSearch.setIconSet(QIconSet(self.image10))
+
+        self.pbShow = QPushButton(self.packages,"pbShow")
+        self.pbShow.setGeometry(QRect(130,10,90,22))
+        self.pbShow.setIconSet(QIconSet(self.image11))
+
+        self.pbInstall = QPushButton(self.packages,"pbInstall")
+        self.pbInstall.setGeometry(QRect(240,10,90,22))
+        self.pbInstall.setIconSet(QIconSet(self.image12))
+
+        self.pbRemove = QPushButton(self.packages,"pbRemove")
+        self.pbRemove.setGeometry(QRect(350,10,90,22))
+        self.pbRemove.setIconSet(QIconSet(self.image13))
+
+        self.pbClearCache = QPushButton(self.packages,"pbClearCache")
+        self.pbClearCache.setGeometry(QRect(460,10,90,22))
+        self.pbClearCache.setIconSet(QIconSet(self.image14))
         self.mainTabWidget.insertTab(self.packages,QString.fromLatin1(""))
 
         self.fileSaveAction = QAction(self,"fileSaveAction")
-        self.fileSaveAction.setIconSet(QIconSet(self.image14))
+        self.fileSaveAction.setIconSet(QIconSet(self.image15))
         self.fileExitAction = QAction(self,"fileExitAction")
         self.editUndoAction = QAction(self,"editUndoAction")
-        self.editUndoAction.setIconSet(QIconSet(self.image15))
+        self.editUndoAction.setIconSet(QIconSet(self.image16))
         self.editRedoAction = QAction(self,"editRedoAction")
-        self.editRedoAction.setIconSet(QIconSet(self.image16))
+        self.editRedoAction.setIconSet(QIconSet(self.image17))
         self.editCutAction = QAction(self,"editCutAction")
-        self.editCutAction.setIconSet(QIconSet(self.image17))
+        self.editCutAction.setIconSet(QIconSet(self.image18))
         self.editCopyAction = QAction(self,"editCopyAction")
-        self.editCopyAction.setIconSet(QIconSet(self.image18))
+        self.editCopyAction.setIconSet(QIconSet(self.image19))
         self.editPasteAction = QAction(self,"editPasteAction")
-        self.editPasteAction.setIconSet(QIconSet(self.image19))
+        self.editPasteAction.setIconSet(QIconSet(self.image20))
         self.helpAboutAction = QAction(self,"helpAboutAction")
         self.helpAboutnew_itemAction = QAction(self,"helpAboutnew_itemAction")
         self.Action = QAction(self,"Action")
@@ -1314,7 +1360,7 @@ class tinaptMain(QMainWindow):
 
         self.languageChange()
 
-        self.resize(QSize(600,551).expandedTo(self.minimumSizeHint()))
+        self.resize(QSize(606,551).expandedTo(self.minimumSizeHint()))
         self.clearWState(Qt.WState_Polished)
 
         self.connect(self.editUndoAction,SIGNAL("activated()"),self.mainTextWindow.undo)
@@ -1352,6 +1398,7 @@ class tinaptMain(QMainWindow):
         self.pbSecUpgrade.setAccel(self.__tr("Alt+U"))
         QToolTip.add(self.pbSecUpgrade,self.__tr("Click fro security upgrades"))
         self.mainTabWidget.changeTab(self.upgrade,self.__tr("Upgrade"))
+        self.packageUserInput.setText(self.__tr("Enter packagename or search criteria here"))
         self.pbSearch.setText(self.__tr("Search"))
         QToolTip.add(self.pbSearch,self.__tr("Search repositories for a package"))
         self.pbShow.setText(self.__tr("Show"))
@@ -1360,7 +1407,9 @@ class tinaptMain(QMainWindow):
         QToolTip.add(self.pbInstall,self.__tr("Install one or more packages (space separated)"))
         self.pbRemove.setText(self.__tr("Remove"))
         QToolTip.add(self.pbRemove,self.__tr("Remove one or more packages (space separated)"))
-        self.packageUserInput.setText(self.__tr("Enter packagename or search criteria here"))
+        self.pbClearCache.setText(self.__tr("ClearC&ache"))
+        self.pbClearCache.setAccel(self.__tr("Alt+A"))
+        QToolTip.add(self.pbClearCache,self.__tr("Clear APT cached packages"))
         self.mainTabWidget.changeTab(self.packages,self.__tr("Packages"))
         self.fileSaveAction.setText(self.__tr("Save"))
         self.fileSaveAction.setMenuText(self.__tr("&Save"))

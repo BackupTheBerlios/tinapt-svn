@@ -1,5 +1,5 @@
 #!/usr/bin/python2.4
-### -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 ## ###### Tinapt ########
 ##
@@ -44,6 +44,13 @@ class tinaptMainClass(tinaptMain):
         self.connect(self.pbUpgrade, SIGNAL("clicked()"), self.doUpgrade)
         self.connect(self.pbDistUpgrade, SIGNAL("clicked()"), self.doDistUpgrade)
 ##        self.connect(self.pbSecUpgrade, SIGNAL("clicked()"), self.doSecUpgrade)
+
+##        # Packages tab buttons
+##        self.connect(self.pbSearch, SIGNAL("clicked()"), self.doSearch)
+##        self.connect(self.pbShow, SIGNAL("clicked()"), self.doShow)
+##        self.connect(self.pbInstall, SIGNAL("clicked()"), self.doInstall)
+##        self.connect(self.pbRemove, SIGNAL("clicked()"), self.doRemove)
+##        self.connect(self.pbClearCache, SIGNAL("clicked()"), self.doClearCache)
         
         # Set defaults
         self.pbSaveMain.setEnabled(0)
@@ -143,17 +150,18 @@ class tinaptMainClass(tinaptMain):
         self.connect(self.upgradeProcess, SIGNAL("readyReadStdout()"), self.readOutput)
         self.connect(self.upgradeProcess, SIGNAL("processExited()"), self.upgradeProcessExit)
         self.connect(self.upgradeProcess, SIGNAL("readyReadStderr()"), self.readUpgradeErrors)
-        self.upgradeProcess.setArguments((QStringList.split(" ", "apt-get upgrade"))) # -d option temporary for testing purposes
+        self.upgradeProcess.setArguments((QStringList.split(" ", "apt-get upgrade"))) 
         self.upgradeProcess.start()
         
     def readOutput(self):
         outputString = QString(self.upgradeProcess.readStdout())
-        cr = QString("\n")  # Make a QString carriage return
         self.mainTextWindow.append(outputString)
         
         # Check if upgradeProcess ask to continue
         if outputString.endsWith("? "):
+            cr = QString("\n")  # Make a QString carriage return
             qApp.processEvents()
+            
             # Isolate the yes character needed for input.
             yesOptionString = outputString.right(6)
             yesOption = yesOptionString.left(1) + cr
@@ -170,7 +178,6 @@ class tinaptMainClass(tinaptMain):
                 if self.upgradeProcess.isRunning() == "TRUE":
                     QTimer.singleShot(100, self.upgradeProcessKill())
                     
-            
             ouputString = " "
 
     def readUpgradeErrors(self):
@@ -210,12 +217,13 @@ class tinaptMainClass(tinaptMain):
         
     def readDistOutput(self):
         outputString = QString(self.distUpgradeProcess.readStdout())
-        cr = QString("\n")  # Make QString carriage return
         self.mainTextWindow.append(outputString)
         
         # Check if upgradeProcess ask to continue
         if outputString.endsWith("? "):
+            cr = QString("\n")  # Make QString carriage return
             qApp.processEvents()
+            
             # Isolate the yes character needed for input.
             yesOptionString = outputString.right(6)
             yesOption = yesOptionString.left(1) + cr
@@ -231,7 +239,7 @@ class tinaptMainClass(tinaptMain):
                 #Kill distUpgradeProcess if tryTerminate fails
                 if self.distUpgradeProcess.isRunning() == "TRUE":
                     QTimer.singleShot(100, self.distUpgradeProcessKill())
-            
+                    
             ouputString = " "
 
     def readDistUpgradeErrors(self):
