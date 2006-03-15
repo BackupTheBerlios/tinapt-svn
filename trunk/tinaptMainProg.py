@@ -67,6 +67,7 @@ class tinaptMainClass(tinaptMain):
         
     def selectUserInput(self):
         self.packageUserInput.selectAll()
+        self.packageUserInput.setCursorPosition(0, 0)
     
     def doSaveMain(self):
         # Save sources.list
@@ -278,6 +279,7 @@ class tinaptMainClass(tinaptMain):
             self.namesOnlySearch()
         
     def generalSearch(self):
+        self.mainTextWindow.clear()
         generalCommand = QString("apt-cache search ")
         searchString = generalCommand + self.packageUserInput.text()
         self.searchProcess = QProcess()
@@ -288,7 +290,15 @@ class tinaptMainClass(tinaptMain):
         self.searchProcess.start()
         
     def namesOnlySearch(self):
-        print "Names only"
+        self.mainTextWindow.clear()
+        namesOnlyCommand = QString("apt-cache --names-only search ")
+        searchString = namesOnlyCommand + self.packageUserInput.text()
+        self.searchProcess = QProcess()
+        self.connect(self.searchProcess, SIGNAL("readyReadStdout()"), self.readSearchOutput)
+        self.connect(self.searchProcess, SIGNAL("processExited()"), self.searchProcessExit)
+##        self.connect(self.generalSearch, SIGNAL("readyReadStderr()"), self.searchErrors)
+        self.searchProcess.setArguments((QStringList.split(" ", searchString))) 
+        self.searchProcess.start()
         
     def readSearchOutput(self):
         self.mainTextWindow.append(QString(self.searchProcess.readStdout()))
@@ -297,6 +307,7 @@ class tinaptMainClass(tinaptMain):
         self.mainTextWindow.append("\n Operation completed as requested")
         self.mainTextWindow.setReadOnly(1)
         self.pbSaveMain.setEnabled(0)
+
     
     
 
