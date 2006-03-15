@@ -16,6 +16,7 @@ tinapt:			Tinapt startup shell-script
 tinaptMainProg.py: 	The main python program
 tinaptGUI.py:		The GUI python module **DO NOT MODIFY THIS FILE!**
 confUpg.py:		The upgrade confirmation dialog **DO NOT MODIFY THIS FILE!**
+searchDialog.py		The searchmethod dialog **DO NOT MODIFY THIS FILE**
 tinapt.e3p:		Eric3 IDE project file (Not required)
 tinapt.e3t:		Eric3 IDE project file (Not required)
 
@@ -23,6 +24,6 @@ tinapt.e3t:		Eric3 IDE project file (Not required)
 *A collection of icons used in the GUI kept for convenience. Not required unless changes are to be made*
 
 /trunk/qtFiles
-tinaptmain.ui:		The Qt3 designer flile containing the GUI. Only required if changes to the GUI are to be made.
+tinaptmain.ui:		The Qt3 designer file containing the main GUI
 confUpgrade.ui		The Qt3 designer file for the upgrade confirmation dialog.
-tinaptmain.ui.h		The Qt3 designer C header file. Not required.
+searchmethod.ui		The Qt3 designer file for the search method dialog.

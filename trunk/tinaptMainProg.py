@@ -22,6 +22,7 @@ import commands
 from qt import *
 from  tinaptGUI import tinaptMain
 from confUpg import  confUpgrade
+from searchDialog import searchMethod
 
 
 
@@ -30,6 +31,9 @@ __version__ = '0.1a'
 class tinaptMainClass(tinaptMain):
     def __init__(self):
         tinaptMain.__init__(self )
+        ## Signals ##
+        # General
+##        self.connect(self.mainTabWidget,SIGNAL("packages()"),self.selectUserInput)
         # Main buttons
         self.connect(self.pbSaveMain, SIGNAL("clicked()"), self.doSaveMain)
         self.connect(self.pbClearMain, SIGNAL("clicked()"), self.doClearMain)
@@ -45,8 +49,8 @@ class tinaptMainClass(tinaptMain):
         self.connect(self.pbDistUpgrade, SIGNAL("clicked()"), self.doDistUpgrade)
 ##        self.connect(self.pbSecUpgrade, SIGNAL("clicked()"), self.doSecUpgrade)
 
-##        # Packages tab buttons
-##        self.connect(self.pbSearch, SIGNAL("clicked()"), self.doSearch)
+       # Packages tab buttons
+        self.connect(self.pbSearch, SIGNAL("clicked()"), self.doSearch)
 ##        self.connect(self.pbShow, SIGNAL("clicked()"), self.doShow)
 ##        self.connect(self.pbInstall, SIGNAL("clicked()"), self.doInstall)
 ##        self.connect(self.pbRemove, SIGNAL("clicked()"), self.doRemove)
@@ -57,9 +61,12 @@ class tinaptMainClass(tinaptMain):
         self.mainTextWindow.setEnabled(0)
         self.sourcesMessage.setEnabled(0)
         self.upgradeMessage.setEnabled(0)
+        self.packageUserInput.selectAll()
         
         self.pbSecUpgrade.setEnabled(0) #Temporarily disabled (Need to figure out how to do just a sec upgrade)
         
+    def selectUserInput(self):
+        self.packageUserInput.selectAll()
     
     def doSaveMain(self):
         # Save sources.list
@@ -255,6 +262,42 @@ class tinaptMainClass(tinaptMain):
         self.mainTextWindow.append("Operation aborted")
         self.upgradeMessage.setText(" ")
         self.upgradeMessage.setEnabled(0)
+    
+    ## Packages tab ##
+    #search button
+    def doSearch(self):
+        self.mainTextWindow.setEnabled(1)
+        self.mainTextWindow.setReadOnly(0)
+        self.pbSaveMain.setEnabled(0)
+        
+        # Decide search method
+        dialog = searchMethod(self)
+        if dialog.exec_loop() == QDialog.Accepted:
+            self.generalSearch()
+        else:
+            self.namesOnlySearch()
+        
+    def generalSearch(self):
+        generalCommand = QString("apt-cache search ")
+        searchString = generalCommand + self.packageUserInput.text()
+        self.searchProcess = QProcess()
+        self.connect(self.searchProcess, SIGNAL("readyReadStdout()"), self.readSearchOutput)
+        self.connect(self.searchProcess, SIGNAL("processExited()"), self.searchProcessExit)
+##        self.connect(self.generalSearch, SIGNAL("readyReadStderr()"), self.searchErrors)
+        self.searchProcess.setArguments((QStringList.split(" ", searchString))) 
+        self.searchProcess.start()
+        
+    def namesOnlySearch(self):
+        print "Names only"
+        
+    def readSearchOutput(self):
+        self.mainTextWindow.append(QString(self.searchProcess.readStdout()))
+        
+    def searchProcessExit(self):
+        self.mainTextWindow.append("\n Operation completed as requested")
+        self.mainTextWindow.setReadOnly(1)
+        self.pbSaveMain.setEnabled(0)
+    
     
 
 ##     Just to quickly test that stuff works ##
